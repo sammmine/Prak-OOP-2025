@@ -1,0 +1,13 @@
+(Lanjut dari PR tanggal 11 maret)
+
+Ubah kelas Kendaraan menjadi kelas abstrak, 
+kemudian buat kelas Bus, Minibus, dan Mobil sebagai subclass dari Kendaraan.​
+
+Tambahan atribut: Bus memiliki kapasitas (default value = 0),
+Mobil memiliki supir (default value = "XXXX"). Sesuaikan prosedur printInfo.​
+
+Tambahan method: Minibus memiliki method diskon(int lamaSewa)
+yaitu fungsi untuk menghasilkan diskon sewa sebesar 10% dari biaya sewa
+(dihitung dengan method biayaSewa), jika lamaSewa > 10.​
+
+Ujilah perilaku kelas-kelas ini dengan memanfaatkan kelas KoleksiKendaraan.
