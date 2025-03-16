@@ -27,12 +27,20 @@ void Minibus::printInfo() {
     Kendaraan::printInfo();
 }
 
-void Minibus::biayaSewa(int lamaSewa) {
+int Minibus::biayaSewa(int lamaSewa){
     int hargaSewa=0;
     if (lamaSewa <= 5) {
         hargaSewa=5000000;
     } else {
         hargaSewa=5000000+500000*(lamaSewa-5);
     }
-    cout << "Biaya sewa kendaraan ini adalah: " << hargaSewa << endl;
+    return hargaSewa;
+}
+
+void Minibus::diskon(int lamaSewa) {
+    int hargaSewa = biayaSewa(lamaSewa);
+    if (lamaSewa > 10) {
+        hargaSewa = 0.9*hargaSewa;
+    }
+    cout << "Setelah diskon, biaya sewa kendaraan ini adalah: " << hargaSewa << endl;
 }

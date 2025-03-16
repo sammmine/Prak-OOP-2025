@@ -29,7 +29,8 @@ void Mobil::printInfo() {
     cout << "Supir: " << this->supir << endl;
 }
 
-void Mobil::biayaSewa(int lamaSewa){
+int Mobil::biayaSewa(int lamaSewa){
     int hargaSewa=500000*lamaSewa;
     cout << "Biaya sewa kendaraan ini adalah: " << hargaSewa << endl;
+    return hargaSewa;
 }

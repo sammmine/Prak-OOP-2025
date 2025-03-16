@@ -10,5 +10,5 @@ class Mobil : public Kendaraan {
         Mobil& operator=(const Mobil& m);
 
         void printInfo();
-        void biayaSewa(int lamaSewa);
+        int biayaSewa(int lamaSewa);
 };

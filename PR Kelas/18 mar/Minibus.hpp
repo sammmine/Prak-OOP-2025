@@ -8,5 +8,6 @@ class Minibus : public Kendaraan {
         Minibus& operator=(const Minibus& n);
 
         void printInfo();
-        void biayaSewa(int lamaSewa);
+        int biayaSewa(int lamaSewa);
+        void diskon(int lamaSewa);
 };

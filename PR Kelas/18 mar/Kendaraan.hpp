@@ -19,7 +19,7 @@ class Kendaraan {
         ~Kendaraan();
 
         virtual void printInfo();
-        void biayaSewa(int lamaSewa); 
+        int biayaSewa(int lamaSewa); 
 };
 
 #endif

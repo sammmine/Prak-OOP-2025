@@ -29,7 +29,8 @@ void Bus::printInfo() {
     cout << "Kapasitas: " << this->kapasitas << endl;
 }
 
-void Bus::biayaSewa(int lamaSewa) {
+int Bus::biayaSewa(int lamaSewa) {
     int hargaSewa=1000000*lamaSewa;
     cout << "Biaya sewa kendaraan ini adalah: " << hargaSewa << endl;
+    return hargaSewa;
 }

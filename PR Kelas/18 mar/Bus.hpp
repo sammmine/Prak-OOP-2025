@@ -10,5 +10,5 @@ class Bus : public Kendaraan {
         Bus& operator=(const Bus& b);
 
         void printInfo();
-        void biayaSewa(int lamaSewa);
+        int biayaSewa(int lamaSewa);
 };

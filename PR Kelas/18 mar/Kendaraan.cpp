@@ -42,7 +42,7 @@ void Kendaraan::printInfo(){
     cout << "Kategori Kendaraan: " << this->kategori << endl;
 }
 
-void Kendaraan::biayaSewa(int lamaSewa){
+int Kendaraan::biayaSewa(int lamaSewa){
     int hargaSewa=0;
     if (this->kategori=="bus") {
         hargaSewa=1000000*lamaSewa;
@@ -56,4 +56,5 @@ void Kendaraan::biayaSewa(int lamaSewa){
         hargaSewa=500000*lamaSewa;
     }
     cout << "Biaya sewa kendaraan ini adalah: " << hargaSewa << endl;
+    return hargaSewa;
 }
