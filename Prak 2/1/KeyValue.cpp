@@ -28,7 +28,7 @@ class KeyValue {
             }
         }
         void display (A key) {
-            for (int i; i<nEff; i++) {
+            for (int i=0; i<nEff; i++) {
                 if (keys[i]==key) {
                     cout << values[i] << endl;
                     return;
@@ -40,12 +40,11 @@ class KeyValue {
 
 // Case keys bertipe double
 template<class B>
-class KeyValue {
+class KeyValue <double, B> {
     private:
         double keys[10];
-        B* values[10];
+        B values[10];
         int nEff;
-        const int maxSize = 10;
     public:
         KeyValue() : nEff(0) {}
         ~KeyValue() {}
@@ -66,7 +65,7 @@ class KeyValue {
             }
         }
         void display (double key) {
-            for (int i; i<nEff; i++) {
+            for (int i=0; i<nEff; i++) {
                 if (abs(keys[i]-key) < 0.01) { // Selisih harus kurang dari 0.01
                     cout << values[i] << endl;
                     return;
