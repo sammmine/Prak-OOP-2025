@@ -5,7 +5,7 @@ BarangMakanan::BarangMakanan(string nama, int berat, int hariKedaluwarsa) : Bara
 }
 
 int BarangMakanan::getHariKedaluwarsa() const {
-    return this->hariKedaluwarsa;
+    return hariKedaluwarsa;
 }
 
 string BarangMakanan::getJenis() const {

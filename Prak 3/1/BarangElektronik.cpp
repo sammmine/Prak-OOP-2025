@@ -5,7 +5,7 @@ BarangElektronik::BarangElektronik(string nama, int berat, int voltase) : Barang
 }
 
 int BarangElektronik::getVoltase() const {
-    return this->voltase;
+    return voltase;
 }
 
 string BarangElektronik::getJenis() const {

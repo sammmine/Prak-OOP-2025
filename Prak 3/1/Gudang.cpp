@@ -1,4 +1,6 @@
 #include "Gudang.hpp"
+#include "BarangMakanan.hpp"
+#include "BarangElektronik.hpp"
 #include "Exception.hpp"
 #include <iostream>
 using namespace std;
@@ -21,9 +23,21 @@ Gudang::~Gudang() {
     delete[] &daftarBarang;
 }
 
-void simpanBarang(Barang *barang) {
+void Gudang::simpanBarang(Barang *barang) {
     try {
-        
+        if (dynamic_cast<BarangMakanan *>(barang) != nullptr) {
+            BarangMakanan *makanan = dynamic_cast<BarangMakanan *>(barang);
+            if (makanan->getHariKedaluwarsa() <= 0) {
+                throw BarangKedaluwarsaException();
+            }
+        }
+
+        pakaiKapasitas(barang->getBerat());
+        pakaiUang(100);
+        pakaiTenagaKerja();
+
+        daftarBarang.push_back(barang);
+        cout << "Barang [" << daftarBarang.size() - 1 << "] " << barang->getNama() << " berhasil disimpan" << endl;
 
     } catch (BarangKedaluwarsaException e) {
         cout << e.what() << ", buang dulu." << endl;
@@ -31,8 +45,11 @@ void simpanBarang(Barang *barang) {
         cout << e.what() << ", perluas gudang dulu." << endl;
     } catch (UangTidakCukupException e) {
         cout << e.what() << ", cari pemasukan dulu." << endl;
+        tambahKapasitas(barang->getBerat());
     } catch (TenagaKerjaTidakCukupException e) {
         cout << e.what() << ", rekrut dulu." << endl;
+        tambahKapasitas(barang->getBerat());
+        tambahUang(100);
     }
 }
 
@@ -70,10 +87,23 @@ void Gudang::pakaiTenagaKerja() {
 }
 
 void Gudang::sebutBarang(int idx) {
-
+    try {
+        cout << daftarBarang[idx]->getNama() << " - " << daftarBarang[idx]->getJenis() << " - " << daftarBarang[idx]->getBerat() << "kg" << endl;
+    }
+    catch (const exception& e) {
+        cout << e.what() << endl;
+    }
 }
 
 void Gudang::statusGudang() const {
-
+    cout << "Status gudang:" << endl;
+    cout << "Kapasitas total: " << this->kapasitasTotal << " kg" << endl;
+    cout << "Kapasitas terpakai: " << this->kapasitasTerpakai << " kg" << endl;
+    cout << "Uang: " << this->uang << endl;
+    cout << "Tenaga kerja: " << this->tenagaKerja << endl;
+    cout << "Barang:" << endl;
+    for (int i=0; i<daftarBarang.size(); i++) {
+        cout << "[" << i << "] " << daftarBarang[i]->getNama() << " - " << daftarBarang[i]->getJenis() << " - " << daftarBarang[i]->getBerat() << "kg" << endl;
+    }
 }
 

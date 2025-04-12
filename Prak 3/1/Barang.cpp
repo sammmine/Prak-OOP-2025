@@ -8,9 +8,9 @@ Barang::Barang(string nama, int berat) {
 Barang::~Barang() {}
 
 string Barang::getNama() const {
-    return this->nama;
+    return nama;
 }
 
 int Barang::getBerat() const {
-    return this->berat;
+    return berat;
 }
