@@ -10,7 +10,7 @@ int main() {
     Song tiga("youll always find your way back home", "hannah montana");
     Song empat("lalali", "seventeen");
 
-    cout << "Judul: " << p.getName();
+    cout << "Judul: " << p.getName() << endl;
     
     p.addSong(satu);
     p.addSong(dua);
@@ -19,8 +19,9 @@ int main() {
 
     cout << "Jumlah lagu: " << p.numberOfSongs() << endl;
     
-    p.removeSongByIndex(1); // "dua" dihapus
-
+    // p.removeSongByIndex(1); // "dua" dihapus
+    p.removeSong(dua);
+    
     cout << p; // "satu", "tiga", "empat"
 
     // cek playback

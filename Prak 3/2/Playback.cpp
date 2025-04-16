@@ -6,8 +6,8 @@ void Playback::addToQueue(const Song &song){
 
 void Playback::addToQueue(const Playlist &playlist){
     vector<Song> songs = playlist.getSongs();
-    for (int i=0; i<songs.size(); i++) {
-        playbackQueue.push(songs[i]);
+    for (auto it = playlist.getSongs().begin(); it != playlist.getSongs().end(); it++) {
+        playbackQueue.push(*it);
     }
 }
 
@@ -21,14 +21,8 @@ void Playback::next() {
 }
 
 void Playback::playAll() {
-    if (playbackQueue.empty()) {
-        cout << "Antrian kosong" << endl;
-        return;
-    }
-    int size = playbackQueue.size();
-    for (int i=0; i<size; i++) {
-        cout << "Memutar: " << playbackQueue.front() << endl;
-        playbackQueue.pop();
+    while (!playbackQueue.empty()) {
+        this->next();
     }
 }
 
@@ -41,8 +35,7 @@ void Playback::skip() {
 }
 
 void Playback::clearQueue() {
-    int size = playbackQueue.size();
-    for (int i=0; i<size; i++) {
+    while(!playbackQueue.empty()) {
         playbackQueue.pop();
     }
 }

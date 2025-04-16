@@ -13,60 +13,42 @@ const vector<Song> &Playlist::getSongs() const {
 }
 
 void Playlist::addSong(const Song &song) {
-    for (int i=0; i<songs.size(); i++) {
-        if (songs[i] == song) {
+    for (auto it = songs.begin(); it!= songs.end(); it++) { // search apakah udah ada lagu yang sama
+        if (song == *it) {
             return;
         }
     }
-    songs[songs.size()] = song;
+    songs.push_back(song);
 }
 
 bool Playlist::removeSong(const Song &songToRemove) {
-    int idx = -1;
-    vector<Song> temp;
-    for (int i=0; i<songs.size(); i++) {
-        if (songs[i] == songToRemove) {
-            idx = i;
-            break;
+    for (auto it = songs.begin(); it!= songs.end(); it++) {
+        if (songToRemove == *it) {
+            songs.erase(it);
+            return true;
         }
-        temp[i] = songs[i];
     }
-    if (idx > 0) { // artinya lagu yg mau dihapus ditemukan
-        for (int i=idx+1; i<songs.size(); i++) {
-            temp[temp.size()]=songs[i];
-        }
-        songs = temp; // songs diganti
-        return true;
-    }
-    return false; // songs tidak diganti
+    return false;
 }
 
 void Playlist::removeSongByIndex(size_t index) {
-    vector<Song> temp;
     if (index > songs.size()) {
         throw out_of_range("Index out of range");
+        return;
     }
-    if (index > 0) {
-        for (int i=0; i<index-1; i++) { // kalau index bukan nol
-            temp[temp.size()] = songs[i];
-        }
-    }
-    for (int i=index+1; i<songs.size(); i++) {
-        temp[temp.size()]=songs[i];
-    }
-    songs = temp;
+    songs.erase(songs.begin() + index);
 }
 
 size_t Playlist::numberOfSongs() const {
-    return this->songs.size();
+    return songs.size();
 }
 
 ostream& operator<<(ostream &os, const Playlist &pl) {
-    vector<Song> a = pl.getSongs();
-    cout << "Playlist: " << pl.getName() << " (" << a.size() << " lagu)" << endl;
-    for (int i=0; i<a.size(); i++) {
-        cout << i+1 << ".";
-        cout << a[i].getTitle();
+    os << "Playlist: " << pl.getName() << " (" << pl.numberOfSongs() << " lagu)" << endl;
+    int idx = 1;
+    for (auto it = pl.getSongs().begin(); it!= pl.getSongs().end(); it++) {
+        os << idx << ". " << *it << endl;
+        idx++;
     }
-    cout << endl;
+    return os;
 }
