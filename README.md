@@ -6,3 +6,5 @@
 - Tutorial 1            : Class, Const, Static, & Overloading
 - Tutorial 2 & Prak 2   : Inheritance, Polymorphism, & Generic
 - Prak 3                : Exception & STL
+- Prak UTS
+- Tutorial 4            : Class, Inheritance, Abstract, & Interface in Java
