@@ -8,4 +8,4 @@
 - Prak 3                : Exception & STL
 - Prak UTS
 - Tutorial 4 & Prak 4   : Class, Inheritance, Abstract, & Interface in Java
-- Tutorial 5            : Generic, Wildcard, & Java API
+- Tutorial 5 & Prak 5   : Generic, Wildcard, & Java API
