@@ -9,3 +9,4 @@
 - Prak UTS
 - Tutorial 4 & Prak 4   : Class, Inheritance, Abstract, & Interface in Java
 - Tutorial 5 & Prak 5   : Generic, Wildcard, & Java API
+- Tutorial 6            : Java Stream API, Exception and Assertion, Multi Threading, Reflection, Design Pattern
